@@ -1,1 +1,1 @@
-The script here prings the absolute path name of a working directory
+This displays the contents of a working direcotry in long format
