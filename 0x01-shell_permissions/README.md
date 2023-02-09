@@ -9,5 +9,6 @@ Task9: sets mode of the file hello to -rwr-x-wx 1 julien julien 23 Sep 20 14:25 
 Task10: Write a script that sets the mode of the file hello the same as olleh’s mode
 Task11: execute permission to all subdirectories of the current directory for the owner, the group owner and all other users
 Task12: This script creates a directory called my_dir with permissions 751 in the working directory
-a script that changes the group owner to school for the file hello
-script that changes owner to vincent and the group owner to staff for all the files and directories in the working directory
+Task13: a script that changes the group owner to school for the file hello
+Task14: script that changes owner to vincent and the group owner to staff for all the files and directories in the working directory
+Task15: a script that changes the owner and the group owner of _hello to vincent and staff respectively. 
