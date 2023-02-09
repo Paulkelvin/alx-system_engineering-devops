@@ -1,2 +1,1 @@
-Task 0: creates a script that switches current user to user betty
-Task1:prints the effective username of the current user
+Task2:a script that prints all the groups the current is part of
