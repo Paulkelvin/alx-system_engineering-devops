@@ -12,3 +12,5 @@ Task10: a script that deletes all the regular files (not the directories) with a
 Task12: a script that counts the number of directories and sub-directories in the current directory.
 Task12: a script that displays the 10 newest files in the current directory
 Task13: a script that takes a list of words as input and prints only words that appear exactly once
+Task15: a script that Display the number of lines that contain the pattern “bin” in the file /etc/passwd
+Task15: Display the number of lines that contain the pattern “bin” in the file /etc/passwd
