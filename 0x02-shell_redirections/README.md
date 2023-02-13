@@ -5,3 +5,4 @@ Task3: a script that displays the content of /etc/passwd and /etc/hosts
 Task4: a script thay displays the last 10 lines of /etc/passwd
 Task5: a script that displays the firsr 10 lines of /etc/passwd
 Task6: a script that displays the third line of the file iacta
+Task7: a script that creates a file named exactly \*\\'"Best School"\'\\*$\?\*\*\*\*\*:) containing the text Best School ending by a new line
