@@ -8,3 +8,4 @@ Task12: a script that prints all possible combinations of two letters, except oo
 Task13: a script that prints a number with two decimal places, followed by a new line
 Task14: a script that converts a number from base 10 to base 16
 Task15: a script that encodes and decodes text using the rot13 encryption. Assume ASCII
+Task16: a script that prints every other line from the input, starting with the first line
