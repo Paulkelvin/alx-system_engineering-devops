@@ -5,3 +5,5 @@ Task2: a script that adds /action to the PATH. /action should be the last direct
 Task3: a script that counts the number of directories in the PATH
 Task5: a script that lists environment variables
 Task6: a script that creates a new local variable
+Task7: a script that creates a new global variable
+Task7: a script that creates a new global variable
