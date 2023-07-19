@@ -1,4 +1,2 @@
-0x08. Networking basics #1
-DevOps
-Network
-SysAdmin
+0x08-networking_basics_2
+by me Ibukun Adesanya
