@@ -1,26 +1,56 @@
-# Update the system's package lists
-apt-get update
+#!/usr/bin/env bash
+# install load balancer
 
-# Install software-properties-common
-apt-get install -y software-properties-common
+echo -e "Updating and doing some minor checks...\n"
 
-# Install HAProxy from official repositories
-apt-get install -y haproxy
+function install() {
+	command -v "$1" &> /dev/null
 
-# Configure HAProxy
-HAPROXY_CONFIG="
-frontend web-front
-        bind *:80
-        default_backend web-backend
+	#shellcheck disable=SC2181
+	if [ $? -ne 0 ]; then
+		echo -e "	Installing: $1\n"
+		sudo apt-get update -y -qq && \
+			sudo apt-get install -y "$1" -qq
+		echo -e "\n"
+	else
+		echo -e "	${1} is already installed.\n"
+	fi
+}
 
-backend web-backend
-        balance roundrobin
-        server web1 52.3.253.244:80 check
-        server web2 52.3.245.5:80 check
+install haproxy #install haproxy
+
+echo -e "\nSetting up some minor stuff.\n"
+
+# backup default server config file
+sudo cp /etc/haproxy/haproxy.cfg haproxy_default.backup
+
+server_config=\
+"
+defaults
+  mode http
+  timeout client 15s
+  timeout connect 10s
+  timeout server 15s
+  timeout http-request 10s
+
+frontend tjibbs-tech-frontend
+    bind *:80
+    default_backend tjibbs-tech-backend
+
+backend tjibbs-tech-backend
+    balance roundrobin
+    server 213098-web-01 100.25.23.14:80 check
+    server 213098-web-02 34.204.82.119:80 check
 "
 
-echo "$HAPROXY_CONFIG" > /etc/haproxy/haproxy.cfg
+# shellcheck disable=SC2154
+echo "$server_config" | sudo dd status=none of=/etc/haproxy/haproxy.cfg
 
-# Restart the HAProxy service to apply changes
-systemctl restart haproxy
+# enable haproxy to be started by init script
+echo "ENABLED=1" | sudo dd status=none of=/etc/default/haproxy
 
+if [ "$(pgrep -c haproxy)" -le 0 ]; then
+	sudo service haproxy start
+else
+	sudo service haproxy restart
+fi
