@@ -2,4 +2,4 @@
 # The use of ssh to connect to a server
 
 ssh ubuntu -i ~/.ssh/school
-ssh ubuntu@52.3.245.5
+ssh ubuntu@100.25.131.140
